@@ -287,3 +287,173 @@ void tailReverse(Node **head_addr)
 
 }
 
+// Make an increasing list from two list sorted in an increasing order - Using Dummpy Node 
+Node *SortedMerge_DummpyNode(Node *a, Node *b)
+{
+	Node dummy;
+	Node *tail = &dummy;
+	dummy.next = NULL;
+
+	while (1)
+	{
+		if (a == NULL)
+		{
+			tail->next = b;
+			break;
+		}
+		else if (b == NULL)
+		{
+			tail->next = a;
+			break;
+		}
+
+		if (a->data <= b->data)
+			MoveNode(&(tail->next), &a);
+		else
+			MoveNode(&(tail->next), &b);
+
+		tail = tail->next;
+	}
+
+	return dummy.next;
+}
+
+// Move a node from source list to front of destination list
+void MoveNode(Node **dest, Node **source)
+{
+	Node *new_node = *source;
+	
+	// Assert that new_node must be not a NULL, if not the program will warn this error
+	assert(new_node != NULL);
+
+	// Change pointer of source
+	(*source) = (*source)->next;
+
+	// Change dest 
+	(*dest) = new_node;
+
+}
+
+// Make an increasing list from two list sorted in an increasing order - Using Reference Node 
+Node* SortedMerge_ReferenceNode(Node *a, Node *b)
+{
+	Node *result = NULL;
+	
+	// points to last of list
+	Node **last = &result;
+
+	while (1)
+	{
+		if (a == NULL)
+		{
+			*last = b;
+			break;
+		}
+		else if (b == NULL)
+		{
+			*last = a;
+			break;
+		}
+
+		if (a->data <= b->data)
+			MoveNode(last, &a);
+		else
+			MoveNode(last, &b);
+
+		last = &((*last)->next);
+	}
+
+	return result;
+}
+
+// Make an increasing list from two list sorted in an increasing order - Using Recursive Mechanism
+Node* SortedMerge_Recursive(Node *a, Node *b)
+{
+	Node *result = NULL;
+	
+	if (a == NULL)
+		return b;
+	else if (b == NULL)
+		return a;
+
+	if (a->data <= b->data)
+	{
+		a->next = SortedMerge_Recursive(a->next, b);
+		result = a;
+	}
+	else
+	{
+		b->next = SortedMerge_Recursive(a, b->next);
+		result = b;
+	}
+		
+	return result;
+}
+
+// Sorts linked list using merge sort algorithm
+void MergeSort(Node **head_addr)
+{
+	Node *head = (*head_addr);
+	Node *frontHalf = NULL, *backHalf = NULL;
+
+	// If list has less than 2 nodes
+	if (head == NULL || head->next == NULL) return;
+
+	// Split list into 2 half
+	FrontBackSplit(head, &frontHalf, &backHalf);
+
+	// Recur on each half of list
+	MergeSort(&frontHalf);
+	MergeSort(&backHalf);
+
+	// Aggregate 2 half into one sorted list
+	(*head_addr) = SortedMerge_Recursive(frontHalf, backHalf);
+
+}
+
+// Split linked list into 2 half
+void FrontBackSplit(Node *source, Node **frontHalf, Node **backHalf)
+{
+	Node *fast = NULL, *slow = NULL;
+	if (source == NULL || source->next == NULL)
+	{
+		(*frontHalf) = source;
+		(*backHalf) = NULL;
+	}
+	else
+	{
+		fast = slow = source;
+		while (fast->next != NULL && fast->next->next != NULL)
+		{
+			slow = slow->next;
+			fast = fast->next->next;
+		}
+		
+		(*frontHalf) = source;
+		(*backHalf) = slow->next;
+		slow->next = NULL;
+	}
+}
+
+// Reverses the linked list in groups of size k and returns the pointer to the new head node
+Node *reverseGroup(Node *head, int k)
+{
+	Node *current = head, *prev = NULL, *next = NULL;
+	int count = 0;
+
+	while (current != NULL && count < k)
+	{
+		next = current->next; // Store the next node of current node
+		current->next = prev; // change the direction of link
+		prev = current; // update the previous node
+		current = next; // update the current node
+		count++;
+	}
+
+	// If has more group behind
+	if (next != NULL)
+		head->next = reverseGroup(next, k);
+
+	return prev; // return new head of group (after reversed)
+}
+
