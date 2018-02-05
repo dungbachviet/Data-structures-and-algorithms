@@ -61,6 +61,25 @@ void tailRecursiveReverse(Node *curr, Node *prev, Node **head);
 // Function calls to tailRecursiveReverse(...)
 void tailReverse(Node **head);
 
+// Make an increasing list from two list sorted in an increasing order - Using Dummpy Node 
+Node* SortedMerge_DummpyNode(Node *a, Node *b);
 
+// Move a node from source list to last of destination list
+void MoveNode(Node **dest, Node **source);
+
+// Make an increasing list from two list sorted in an increasing order - Using Reference Node 
+Node* SortedMerge_ReferenceNode(Node *a, Node *b);
+
+// Make an increasing list from two list sorted in an increasing order - Using Recursive Mechanism
+Node* SortedMerge_Recursive(Node *a, Node *b);
+
+// Sorts linked list using merge sort algorithm
+void MergeSort(Node **head_addr);
+
+// Split linked list into 2 half
+void FrontBackSplit(Node *source, Node **frontHalf, Node **backHalf);
+
+// Reverses the linked list in groups of size k and returns the pointer to the new head node
+Node *reverseGroup(Node *head, int k);
 
 #endif
