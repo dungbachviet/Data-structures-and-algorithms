@@ -1,33 +1,34 @@
 # DOUBLY LINKED LIST
 
 
-###1.	Hàm chèn một node mới vào đầu list
+### 1.	Hàm chèn một node mới vào đầu list
+```C++
 // Insert a new node at head of doubly linked list
 void insertHead(Node **head_addr, int new_data);
-
+```
 -	Do trong thao tác có thể cập nhật con trỏ head vì vậy cần phải truyền vào địa chỉ của con trỏ head ban đầu (tức con trỏ cấp 2)
 
-###2.	Hàm chèn một node mới vào sau một node cho trước
+### 2.	Hàm chèn một node mới vào sau một node cho trước
 ```C++
 // Insert a new node after a given node
 void insertAfter(Node *prev_node, int new_data);
 ```
-###3.	Hàm chèn một node mới vào cuối list
+### 3.	Hàm chèn một node mới vào cuối list
 ```C++
 // Insert a new node at last of doubly linked list
 void insertLast(Node **head_addr, int new_data);
 ```
-###4.	Hàm chèn một node mới vào trước một node cho trước
+### 4.	Hàm chèn một node mới vào trước một node cho trước
 ```C++
 // Insert a new node before a given node
 void insertBefore(Node **head_addr, Node *after_node, int new_data);
 ```
-###5.	Hàm in danh sách theo 2 chiều : chiều thuận và chiều nghịch
+### 5.	Hàm in danh sách theo 2 chiều : chiều thuận và chiều nghịch
 ```C++
 // Display the doubly linked list
 void printList(Node *head);
 ```
-###6.	Hàm xóa một node trong danh sách liên kết
+### 6.	Hàm xóa một node trong danh sách liên kết
 ```C++
 // Deletes the given node
 void deleteNode(Node **head_addr, Node *deleted_node);
@@ -44,14 +45,14 @@ head = head->next (một cách tổng quát, head mới lúc này có thể bằ
 
 + Giải phóng node x
 
-###7.	Đảo ngược danh sách liên kết
+### 7.	Đảo ngược danh sách liên kết
 ```C++
 // Reverse doubly linked list
 void reverse(Node **head_addr);
 ```
 Tư tưởng chính : Bài toán quy về hoán vị các biến con trỏ prev và next của từng Node trong danh sách liên kết đôi. Xét thêm trường hợp khi danh sách liên kết ban đầu có lớn hơn 1 node, khi ấy cần phải cập nhật lại head mới cho list (đã được đảo ngược)
 
-###8.	Chuyển từ cây nhị phân có thứ tự sang danh sách liên kết đôi vòng có thứ tự
+### 8.	Chuyển từ cây nhị phân có thứ tự sang danh sách liên kết đôi vòng có thứ tự
 ```C++
 // Gather leftList and rightList into a new doubly circle list
 Node *concatenate(Node *leftList, Node *rightList);
@@ -64,7 +65,7 @@ Tư tưởng chính:
 -	Nối list trái với root-list tạo thành list mới, rồi nối list mới với list phải 
 -	Để đảm bảo thứ tự tăng dần trong List thu được : Sử dụng phép duyệt giữa (Inorder) trên cây nhị phân (tức con trái  root  con phải)
 
-###9.	Sử dụng Quick Sort để sắp xếp một danh sách liên kết đôi
+### 9.	Sử dụng Quick Sort để sắp xếp một danh sách liên kết đôi
 
 ```C++
 // swap two elements
@@ -90,7 +91,7 @@ void quickSort(Node *left, Node *right);
 -	Độ phức tạp : bằng khi sử dụng Quick Sort cho mảng (Tức O(n^2) cho thời gian tồi nhất, O(nlogn) cho thời gian trung bình)
 
 
-###10.	 Sử dụng giải thuật Merge Sort trong sắp xếp danh sách kết nối đôi
+### 10.	 Sử dụng giải thuật Merge Sort trong sắp xếp danh sách kết nối đôi
 ```C++
 // Split a list into 2 half of list
 Node *split(Node *head);
