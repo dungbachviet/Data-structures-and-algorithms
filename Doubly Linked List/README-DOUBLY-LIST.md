@@ -63,7 +63,7 @@ Node *BinaryTreeToCircleList(Node *root);
 Tư tưởng chính: 
 -	Sử dụng kỹ thuật đệ quy tới các cây con trái, cây con phải và gốc để tạo thành các Circle List trái, phải, root-list (list vòng một nút) tương ứng
 -	Nối list trái với root-list tạo thành list mới, rồi nối list mới với list phải 
--	Để đảm bảo thứ tự tăng dần trong List thu được : Sử dụng phép duyệt giữa (Inorder) trên cây nhị phân (tức con trái  root  con phải)
+-	Để đảm bảo thứ tự tăng dần trong List thu được : Sử dụng phép duyệt giữa (Inorder) trên cây nhị phân (tức con trái -> root -> con phải)
 
 ### 9.	Sử dụng Quick Sort để sắp xếp một danh sách liên kết đôi
 
@@ -104,6 +104,6 @@ Node *mergeSort(Node *head);
 ```
 Tư tưởng chính : 
 -	Áp dụng giải thuật Merge Sort của mảng áp dụng lên danh sách liên kết đôi, bao gồm các bước chính : Phân tách list thành 2 list (hàm split – Bước chia), thực hiện sắp xếp một cách đệ quy trên từng list con (hàm mergeSort – Bước trị), tổng hợp từ 2 mảng đã được sắp xếp để tạo thành 1 mảng lớn cũng đã được sắp xếp (hàm merge – bước tổng hợp)
--	Hàm split – phân tách list thành 2 nửa list : Sử dụng kỹ thuật con trỏ fast và slow, trong đó : con trỏ fast chạy nhanh gấp 2 lần con trỏ slow, do vậy khi duyệt tới cuối list thì con trỏ slow đang dừng ở giữa mảng  Con trỏ slow chính là điểm chia thành 2 nửa list
--	Merge : Hàm tổng hợp 2 list đã sắp xếp để tạo thành 1 list cha cũng đã được sắp xếp. Sử dụng tư tưởng đệ quy trong sự tổng hợp  khá hay
+-	Hàm split – phân tách list thành 2 nửa list : Sử dụng kỹ thuật con trỏ fast và slow, trong đó : con trỏ fast chạy nhanh gấp 2 lần con trỏ slow, do vậy khi duyệt tới cuối list thì con trỏ slow đang dừng ở giữa mảng -> Con trỏ slow chính là điểm chia thành 2 nửa list
+-	Merge : Hàm tổng hợp 2 list đã sắp xếp để tạo thành 1 list cha cũng đã được sắp xếp. Sử dụng tư tưởng đệ quy trong sự tổng hợp -> khá hay
 -	MergeSort : Hàm đệ quy gồm 3 bước chính : Chia – Trị - Tổng hợp
