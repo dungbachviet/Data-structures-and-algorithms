@@ -1,5 +1,6 @@
 # DOUBLY LINKED LIST
 
+NGUỒN THAM KHẢO : https://www.geeksforgeeks.org/data-structures/
 
 ### 1.	Hàm chèn một node mới vào đầu list
 ```C++
