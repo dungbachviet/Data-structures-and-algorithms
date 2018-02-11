@@ -1,8 +1,8 @@
-### CẤU TRÚC DỮ LIỆU STACK
+# CẤU TRÚC DỮ LIỆU STACK
 
 Link tới nguồn tham khảo : https://www.geeksforgeeks.org/data-structures/
 
-# 1.	Giới thiệu chung về Stack 
+### 1.	Giới thiệu chung về Stack 
 -	Hoạt động theo cơ chế : Last In First Out (LIFO) hay First In Last Out (FILO)
 -	Các thao tác cơ bản đối với cấu trúc dữ liệu Stack : 
 + Push : Thêm một item vào đỉnh của stack
@@ -13,19 +13,19 @@ Link tới nguồn tham khảo : https://www.geeksforgeeks.org/data-structures/
 
 -	Liên tưởng thực tế : Hình ảnh xếp chồng sách, Xếp chồng đĩa (những đĩa được xếp sau những lại được lấy ra và rửa trước)
 
-# 2.	Thiết kế cấu trúc dữ liệu Stack sử dụng mảng 
+### 2.	Thiết kế cấu trúc dữ liệu Stack sử dụng mảng 
 -	Tư tưởng chính : 
 + Tạo ra một struct Stack chuyên chứa và quản lý stack : gồm 3 thành phần, đó là : capacity (lưu sức chứa tối đa của stack, do sử dụng mảng tĩnh nên cần có sự giới hạn về công suất chứa), top (lưu lại vị trí của top trong stack), con trỏ array (trỏ tới mảng tĩnh chứa dữ liệu)
 + Khi push/pop item cần có những thao tác kiểm tra stack có đang đầy hay đang rỗng (tương ứng)?
 -	Mã nguồn chứa bên trong file : StackUsingArray.cpp
 
-# 3.	Thiết kế cấu trúc dữ liệu Stack sử dụng Danh sách liên kết đơn (Linked List)
+### 3.	Thiết kế cấu trúc dữ liệu Stack sử dụng Danh sách liên kết đơn (Linked List)
 -	Tư tưởng chính : 
 + Con trỏ head luôn trỏ tới top của Stack
 + Các thao tác push (thêm mới node) hay pop (lấy node ra khỏi stack) đều có thao tác cập nhật lại con trỏ head
 
 -	Mã nguồn chứa bên trong file : StackUsingLinkedList.cpp
-# 4.	Bài toán chuyển đổi từ một biểu thức trung tố về hậu tố (Infix To Postfix)
+### 4.	Bài toán chuyển đổi từ một biểu thức trung tố về hậu tố (Infix To Postfix)
 
 int infixToPostfix(char *expression);
 -	Biểu thức trung tố : Toán tử nằm giữa 2 toán hạng, với dạng như : a + b – c * d
@@ -55,7 +55,7 @@ int infixToPostfix(char *expression);
 -	File mã nguồn : InfixToPostfix.cpp
 
 
-# 5.	Hàm tính giá trị từ một biểu thức hậu tố
+### 5.	Hàm tính giá trị từ một biểu thức hậu tố
 int evaluatePostfix(char *postfixExp);
 
 -	Tư tưởng chính : 
@@ -63,7 +63,7 @@ int evaluatePostfix(char *postfixExp);
 
 -	File mã nguồn : InfixToPostfix.cpp
 
-# 6.	Hàm đảo ngược một xâu
+### 6.	Hàm đảo ngược một xâu
 void reverseUsingStack(char str[]);
 void reverse(char str[]);
 
@@ -74,7 +74,7 @@ void reverse(char str[]);
 -	File mã nguồn : InfixToPostfix.cpp
 
 
-# 7.	Cài đặt 2 stack trên cùng một mảng tĩnh
+### 7.	Cài đặt 2 stack trên cùng một mảng tĩnh
 
 -	Tư tưởng chính : 
 + Trong các ví dụ trước, chúng ta đã cùng đi tạo chỉ 1 stack trên 1 mảng (tĩnh). Lúc này bài toán đặt ra, đó là : Cài đặt 2 stack trên cùng 1 mảng tĩnh. Ý tưởng ban đầu có thể đặt ra đó là : chia đôi mảng thành 2 nửa, mỗi nửa sẽ là một stack riêng nhưng cách cài đặt này thật sự không hiệu quả và gây lãng phí trong trường hợp 1 stack đang cạn kiệt vùng nhớ lưu trữ, trong khi stack còn lại chiếm quá nhiều vùng nhớ rảnh rỗi-> Một giải pháp tối ưu hơn được đặt ra, đó là : Cài đặt 2 stack trên 2 phía đối ngược của một mảng cho trước. Với cách này giúp chúng ta tận dụng được vùng nhớ trên cả 2 stack
@@ -83,7 +83,7 @@ void reverse(char str[]);
 
 -	File cài đặt : TwoStacks.cpp
 
-# 8.	Bài toán kiểm tra tính cân bằng của biểu thức chứa các dấu ngoặc như : [({})]
+### 8.	Bài toán kiểm tra tính cân bằng của biểu thức chứa các dấu ngoặc như : [({})]
 -	Ý tưởng chính : 
 + Xây dựng một ngăn xếp (sử dụng danh sách liên kết đơn), duyệt từng ký tự trong biểu thức. Nếu gặp dấu ngoặc mở, hãy đưa nó vào ngăn xếp. Nếu gặp dấu ngoặc đóng, hãy lấy 1 ký tự từ trong ngăn xếp rồi kiểm tra đó có phải là một cặp ngoặc hợp lệ; nếu đúng hãy làm tương tự tới hết xâu, còn nếu sai, dừng chương trình và kết luận biểu thức ngoặc đó không cân bằng
 
