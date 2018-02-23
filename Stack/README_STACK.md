@@ -2,7 +2,7 @@
 
 Link tới nguồn tham khảo : https://www.geeksforgeeks.org/data-structures/
 
-## **1.	Giới thiệu chung về Stack**
+## 1.	Giới thiệu chung về Stack
 
 - Hoạt động theo cơ chế : Last In First Out (LIFO) hay First In Last Out (FILO)
 - Các thao tác cơ bản đối với cấu trúc dữ liệu Stack : 
