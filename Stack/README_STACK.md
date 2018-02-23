@@ -90,4 +90,42 @@ void reverse(char str[]);
 -	File mã nguồn : BalancedParentheses.cpp
 
 
+### 9.	Bài toán Next Greater Element 
+-	Bài toán : Cho một dãy các phần tử, yêu cầu với mỗi phần tử hãy tìm ra phần tử đầu tiên mà lớn hơn phần tử này trong số những phần tử nằm bên phải nó.
+-	Giải thuật 1 : Sử dụng 2 vòng For trong đó : vòng For ngoài sẽ xét duyệt từng phần tử, vòng for trong sẽ tìm phần tử đầu tiên nằm bên phải lớn hơn phần tử đang xét bởi vòng for bên ngoài -> Độ phức tạp O(n^2)
+-	Giải thuật 2 : Sử dụng Cấu trúc ngăn xếp -> Độ phức tạp O(n) với ý tưởng chính sau : 
++ Ta có thể đặt ra một vài câu hỏi : Tại sao lại sử dụng Ngăn xếp mà không phải một cấu trúc dữ liệu khác như Hàng đợi? Bằng cách nào mà tác giả có thể giảm được từ độ phức tạp O(n^2) xuống còn O(n)?
++ Để giảm được xuống độ phức tạp O(n) rõ ràng quá trình tìm kiếm phải đi đôi song hành với quá trình duyệt. Với một lập luận như sau : Với một phần tử đang xét tại vị trí i, ta cần phải đi tìm phần tử đầu tiên bên phải lớn hơn nó (tức xét từ phần tử thứ i+1 trở đi), rõ ràng nếu phần tử i+1 <= phần tử i thì NGE của phần tử thứ i phải >= phần tử thứ i+1. Nhưng mà hiện tại phần tử i+1 lại chưa phải là NGE của phần tử i, điều đó có nghĩa rằng ta phải đi tìm tiếp đồng thời phải đưa phần tử i+1 vào đầu ngăn xếp. Công việc lúc này chuyển từ tìm NGE của phần tử i sang tìm NGE cho phần tử i+1, bởi vì phần tử i+1 <= phần tử i  chính điều này đã làm nổi bật lên tính chất của Ngăn xếp (các phần tử vào sau nhưng lại được phục vụ trước). Tới khi nào tìm được NGE cho phần tử i+1 thì hãy kiểm tra xem NGE đó có phải là NGE của phần tử i không, vì rất có thể nó sẽ là. Nếu không thì hãy dịch chuyền và tìm tiếp.
+
+
+-	File mã nguồn : Next Great Element
+
+### 10.	 Đảo ngược một Stack sử dụng kỹ thuật Đệ quy chỉ sử dụng các thao tác Pop, Push (không được dùng các vòng for, while,..)
+-	Ý tưởng chính : 
++ Lợi dụng các ngăn xếp có sẵn trong các lời gọi đệ quy nhằm phục vụ cho sự lưu trữ lại các phần tử khi gọi đệ quy, từ đó, ta tiến hành thay đổi một cách khéo léo thứ tự của các phần tử nhằm thu được một danh sách bị đảo ngược. 
++ Sử dụng 2 hàm chính : Reverse (gọi đệ quy Reverse tới các bài toán con), insertAtBottom (1 hàm nằm trong hàm Reverse có nhiệm vụ chèn 1 phần tử vào cuối dãy sử dụng kỹ thuật đệ quy)
+
+-	File mã nguồn : ReverseStackUsingRecursion.cpp
+
+### 11.	 Sắp xếp một Stack theo thứ tự (tăng dần hoặc giảm dần) sử dụng Kỹ thuật Đệ quy, chỉ được phép sử dụng các hàm ADT (Abstract Data Structure) được định nghĩa bởi Stack đó (không được sử dụng các vòng lặp For, While,… )
+
+-	Ý tưởng : 
++ Đây là một biến thể của bài toán Reverse stack using recursion (Đảo ngược Stack sử dụng Đệ quy)
++ Ý tưởng cho giải pháp này đó là giữ tất cả các giá trị trong các Ngăn xếp của lời gọi hàm cho tới khi Ngăn xếp nhân tạo rỗng. Khi Ngăn xếp nhân tạo rỗng, hãy sắp xếp từng giá trị đang được giữ (trong Ngăn xếp lời gọi hàm) theo thứ tự được sắp xếp.
++ Sử dụng tới 2 hàm : Hàm sortStack(Stack S) (hàm lớn đệ quy gồm 3 thao tác : chia, trị bài toán con nhỏ hơn, tổng hợp(nghĩa là sắp xếp)) và hàm sortedInsert(Stack S, element) là 1 hàm nằm ở bước tổng hợp của hàm sortStack giúp chèn 1 phần tử element vào đúng vị trị theo thứ tự đã được sắp xếp
+
+-	File mã nguồn : SortStackUsingRecursion.cpp
+
+### 12.	 The Stock Span Problem – Bài toán về khoảng giá cổ phiếu
+-	Bài toán : Cho một mảng lưu trữ giá của một cổ phiếu theo các ngày. Với mỗi ngày, hãy đi xem có bao nhiêu ngày liên tiếp (từ ngày hiện tại) trở về trước mà có giá cổ phiếu <= giá cổ phiếu trong ngày hiện tại?
+Ví dụ : Dãy 100, 80, 60, 70, 60, 75, 85  output thu được : 1, 1, 1, 2, 1, 4, 6
+
+-	Ý tưởng 1 : Một cách tiếp cận đơn giản (tầm thường) nhất đó là sử dụng 2 vòng for (vòng for ngoài xét từng phần tử, vòng for trong sẽ đi tìm số phần tử <= phần tử hiện tại (đang xét ở for ngoài) về phía bên trái liên tiếp) -> Độ phức tạp O(n^2)
+
+-	Ý tưởng 2 : Sử dụng Cấu trúc dữ liệu Stack (ngăn xếp) với độ phức tạp O(n), với ý tưởng sau : Giả sử ta đã có Output[0]… Output[i-1] và đang có 1 ngăn xếp đang chứa i-1 ở đỉnh. Lúc này, ta cần phải đi tỉm Output[i], nếu Price[i] < Price[i-1] thì output[i] = 1 (vì phía trái nó không có phần tử nào nhỏ hơn hoặc bằng nó), nhưng nếu Price[i] >= Price[i-1] thì Output[i] = Output[i-1] + (một_lượng_nữa). Ở đây, một_lượng_nữa có nghĩa là có thể là một số ngày mà có Price[i-1] <= Price <= Price[i]  -> Cài đặt ngăn xếp 
+
+-	File mã nguồn : StockSpanProblem.cpp
+
+
+
 		
