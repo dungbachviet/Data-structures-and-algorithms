@@ -2,22 +2,23 @@
 
 Link tới nguồn tham khảo : https://www.geeksforgeeks.org/data-structures/
 
-### 1.	Giới thiệu chung về Stack 
--	Hoạt động theo cơ chế : Last In First Out (LIFO) hay First In Last Out (FILO)
--	Các thao tác cơ bản đối với cấu trúc dữ liệu Stack : 
-+ Push : Thêm một item vào đỉnh của stack
-+ Pop : Lấy item từ đỉnh của stack
-+ Peek or Top : Xem đỉnh của stack
-+ isEmpty : Stack có đang rỗng không?
-+ isFull :  Stack có đang đầy không?
+## 1.	Giới thiệu chung về Stack 
 
--	Liên tưởng thực tế : Hình ảnh xếp chồng sách, Xếp chồng đĩa (những đĩa được xếp sau những lại được lấy ra và rửa trước)
+- Hoạt động theo cơ chế : Last In First Out (LIFO) hay First In Last Out (FILO)
+- Các thao tác cơ bản đối với cấu trúc dữ liệu Stack : 
+  - Push : Thêm một item vào đỉnh của stack
+  - Pop : Lấy item từ đỉnh của stack
+  - Peek or Top : Xem đỉnh của stack
+  - isEmpty : Stack có đang rỗng không?
+  - isFull :  Stack có đang đầy không?
 
-### 2.	Thiết kế cấu trúc dữ liệu Stack sử dụng mảng 
--	Tư tưởng chính : 
-+ Tạo ra một struct Stack chuyên chứa và quản lý stack : gồm 3 thành phần, đó là : capacity (lưu sức chứa tối đa của stack, do sử dụng mảng tĩnh nên cần có sự giới hạn về công suất chứa), top (lưu lại vị trí của top trong stack), con trỏ array (trỏ tới mảng tĩnh chứa dữ liệu)
-+ Khi push/pop item cần có những thao tác kiểm tra stack có đang đầy hay đang rỗng (tương ứng)?
--	Mã nguồn chứa bên trong file : StackUsingArray.cpp
+- Liên tưởng thực tế : Hình ảnh xếp chồng sách, Xếp chồng đĩa (những đĩa được xếp sau những lại được lấy ra và rửa trước)
+
+## 2.	Thiết kế cấu trúc dữ liệu Stack sử dụng mảng 
+- Tư tưởng chính : 
+  - Tạo ra một struct Stack chuyên chứa và quản lý stack : gồm 3 thành phần, đó là : capacity (lưu sức chứa tối đa của stack, do sử dụng mảng tĩnh nên cần có sự giới hạn về công suất chứa), top (lưu lại vị trí của top trong stack), con trỏ array (trỏ tới mảng tĩnh chứa dữ liệu)
+  - Khi push/pop item cần có những thao tác kiểm tra stack có đang đầy hay đang rỗng (tương ứng)?
+- Mã nguồn chứa bên trong file : StackUsingArray.cpp
 
 ### 3.	Thiết kế cấu trúc dữ liệu Stack sử dụng Danh sách liên kết đơn (Linked List)
 -	Tư tưởng chính : 
