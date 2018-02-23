@@ -111,7 +111,7 @@ void reverse(char str[]);
 - File mã nguồn : Next Great Element
 
 ## 10.	 Đảo ngược một Stack sử dụng kỹ thuật Đệ quy chỉ sử dụng các thao tác Pop, Push (không được dùng các vòng for, while,..)
--	Ý tưởng chính : 
+- Ý tưởng chính : 
   - Lợi dụng các ngăn xếp có sẵn trong các lời gọi đệ quy nhằm phục vụ cho sự lưu trữ lại các phần tử khi gọi đệ quy, từ đó, ta tiến hành thay đổi một cách khéo léo thứ tự của các phần tử nhằm thu được một danh sách bị đảo ngược. 
   - Sử dụng 2 hàm chính : Reverse (gọi đệ quy Reverse tới các bài toán con), insertAtBottom (1 hàm nằm trong hàm Reverse có nhiệm vụ chèn 1 phần tử vào cuối dãy sử dụng kỹ thuật đệ quy)
 
@@ -119,22 +119,22 @@ void reverse(char str[]);
 
 ## 11.	 Sắp xếp một Stack theo thứ tự (tăng dần hoặc giảm dần) sử dụng Kỹ thuật Đệ quy, chỉ được phép sử dụng các hàm ADT (Abstract Data Structure) được định nghĩa bởi Stack đó (không được sử dụng các vòng lặp For, While,… )
 
--	Ý tưởng : 
+- Ý tưởng : 
   - Đây là một biến thể của bài toán Reverse stack using recursion (Đảo ngược Stack sử dụng Đệ quy)
   - Ý tưởng cho giải pháp này đó là giữ tất cả các giá trị trong các Ngăn xếp của lời gọi hàm cho tới khi Ngăn xếp nhân tạo rỗng. Khi Ngăn xếp nhân tạo rỗng, hãy sắp xếp từng giá trị đang được giữ (trong Ngăn xếp lời gọi hàm) theo thứ tự được sắp xếp.
   - Sử dụng tới 2 hàm : Hàm sortStack(Stack S) (hàm lớn đệ quy gồm 3 thao tác : chia, trị bài toán con nhỏ hơn, tổng hợp(nghĩa là sắp xếp)) và hàm sortedInsert(Stack S, element) là 1 hàm nằm ở bước tổng hợp của hàm sortStack giúp chèn 1 phần tử element vào đúng vị trị theo thứ tự đã được sắp xếp
 
--	File mã nguồn : SortStackUsingRecursion.cpp
+- File mã nguồn : SortStackUsingRecursion.cpp
 
 ## 12.	 The Stock Span Problem – Bài toán về khoảng giá cổ phiếu
--	Bài toán : Cho một mảng lưu trữ giá của một cổ phiếu theo các ngày. Với mỗi ngày, hãy đi xem có bao nhiêu ngày liên tiếp (từ ngày hiện tại) trở về trước mà có giá cổ phiếu <= giá cổ phiếu trong ngày hiện tại?
+- Bài toán : Cho một mảng lưu trữ giá của một cổ phiếu theo các ngày. Với mỗi ngày, hãy đi xem có bao nhiêu ngày liên tiếp (từ ngày hiện tại) trở về trước mà có giá cổ phiếu <= giá cổ phiếu trong ngày hiện tại?
 Ví dụ : Dãy 100, 80, 60, 70, 60, 75, 85  output thu được : 1, 1, 1, 2, 1, 4, 6
 
--	Ý tưởng 1 : Một cách tiếp cận đơn giản (tầm thường) nhất đó là sử dụng 2 vòng for (vòng for ngoài xét từng phần tử, vòng for trong sẽ đi tìm số phần tử <= phần tử hiện tại (đang xét ở for ngoài) về phía bên trái liên tiếp) -> Độ phức tạp O(n^2)
+- Ý tưởng 1 : Một cách tiếp cận đơn giản (tầm thường) nhất đó là sử dụng 2 vòng for (vòng for ngoài xét từng phần tử, vòng for trong sẽ đi tìm số phần tử <= phần tử hiện tại (đang xét ở for ngoài) về phía bên trái liên tiếp) -> Độ phức tạp O(n^2)
 
--	Ý tưởng 2 : Sử dụng Cấu trúc dữ liệu Stack (ngăn xếp) với độ phức tạp O(n), với ý tưởng sau : Giả sử ta đã có Output[0]… Output[i-1] và đang có 1 ngăn xếp đang chứa i-1 ở đỉnh. Lúc này, ta cần phải đi tỉm Output[i], nếu Price[i] < Price[i-1] thì output[i] = 1 (vì phía trái nó không có phần tử nào nhỏ hơn hoặc bằng nó), nhưng nếu Price[i] >= Price[i-1] thì Output[i] = Output[i-1] + (một_lượng_nữa). Ở đây, một_lượng_nữa có nghĩa là có thể là một số ngày mà có Price[i-1] <= Price <= Price[i]  -> Cài đặt ngăn xếp 
+- Ý tưởng 2 : Sử dụng Cấu trúc dữ liệu Stack (ngăn xếp) với độ phức tạp O(n), với ý tưởng sau : Giả sử ta đã có Output[0]… Output[i-1] và đang có 1 ngăn xếp đang chứa i-1 ở đỉnh. Lúc này, ta cần phải đi tỉm Output[i], nếu Price[i] < Price[i-1] thì output[i] = 1 (vì phía trái nó không có phần tử nào nhỏ hơn hoặc bằng nó), nhưng nếu Price[i] >= Price[i-1] thì Output[i] = Output[i-1] + (một_lượng_nữa). Ở đây, một_lượng_nữa có nghĩa là có thể là một số ngày mà có Price[i-1] <= Price <= Price[i]  -> Cài đặt ngăn xếp 
 
--	File mã nguồn : StockSpanProblem.cpp
+- File mã nguồn : StockSpanProblem.cpp
 
 
 
