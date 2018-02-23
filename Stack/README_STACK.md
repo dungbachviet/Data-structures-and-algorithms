@@ -2,7 +2,7 @@
 
 Link tới nguồn tham khảo : https://www.geeksforgeeks.org/data-structures/
 
-## 1.	Giới thiệu chung về Stack 
+## **1.	Giới thiệu chung về Stack**
 
 - Hoạt động theo cơ chế : Last In First Out (LIFO) hay First In Last Out (FILO)
 - Các thao tác cơ bản đối với cấu trúc dữ liệu Stack : 
@@ -20,46 +20,52 @@ Link tới nguồn tham khảo : https://www.geeksforgeeks.org/data-structures/
   - Khi push/pop item cần có những thao tác kiểm tra stack có đang đầy hay đang rỗng (tương ứng)?
 - Mã nguồn chứa bên trong file : StackUsingArray.cpp
 
-### 3.	Thiết kế cấu trúc dữ liệu Stack sử dụng Danh sách liên kết đơn (Linked List)
--	Tư tưởng chính : 
-+ Con trỏ head luôn trỏ tới top của Stack
-+ Các thao tác push (thêm mới node) hay pop (lấy node ra khỏi stack) đều có thao tác cập nhật lại con trỏ head
+## 3.	Thiết kế cấu trúc dữ liệu Stack sử dụng Danh sách liên kết đơn (Linked List)
+- Tư tưởng chính : 
+  - Con trỏ head luôn trỏ tới top của Stack
+  - Các thao tác push (thêm mới node) hay pop (lấy node ra khỏi stack) đều có thao tác cập nhật lại con trỏ head
 
--	Mã nguồn chứa bên trong file : StackUsingLinkedList.cpp
-### 4.	Bài toán chuyển đổi từ một biểu thức trung tố về hậu tố (Infix To Postfix)
+- Mã nguồn chứa bên trong file : StackUsingLinkedList.cpp
+
+## 4.	Bài toán chuyển đổi từ một biểu thức trung tố về hậu tố (Infix To Postfix)
+```C++
 
 int infixToPostfix(char *expression);
--	Biểu thức trung tố : Toán tử nằm giữa 2 toán hạng, với dạng như : a + b – c * d
--	Biểu thức hậu tố : Toán tử nằm sau hai toán hạng cần tính. Ví dụ : a b + (nghĩa là a + b) hoặc a b c + * (nghĩa là : a * (b+c))
 
--	Tại sao nên sử dụng biểu thức hậu tố : 
-+ Việc tính toán một biểu thức hậu tố sẽ nhanh chóng và đơn giản hơn nhiều so với các biểu thức trung tố vì ta chỉ cần duyệt 1 lần từ trái qua phải trong biểu thức hậu tố để tìm ra được kết quả; trong khi với biểu thức trung tố cần phải xét đến thứ tự ưu tiên của toán tử cũng như tính kết hợp (từ trái sang phải hay từ phải sang trái khi các toán tử được xét là cùng độ ưu tiên), thậm chí còn phức tạp hơn nhiều trong trường hợp có sự đóng góp của nhiều dấu đóng-mở ngoặc trong một biểu thức trung tố,…
-
--	Chú thích về tính kết hợp (Tức khi các toán tử có cùng độ ưu tiên thì sẽ ưu tiên tính về bên nào trước (trái hay phải?))
-+ Tính kết hợp từ trái sang phải bao gồm các nhóm toán tử có cùng độ ưu tiên sau : (+, -), (*, /)
-+ Tính kết hợp từ phải sang trái bao gồm các nhóm toán tử có cùng độ ưu tiên sau : (^)
-
--	Giải thuật : 
-+ Từ biểu thức trung tố cho trước, duyệt từ trái qua phải, với mỗi ký tự được gặp : 
-+ Nếu nó là một toán hạng, luôn xuất (output) ký tự đó ra
-+ Nếu nó là một toán tử, xảy ra 2 khả năng : 
-•	Khả năng 1 : Toán tử này có độ ưu tiên cao hơn, hoặc có độ ưu tiên bằng nhưng theo quy tắc kết hợp của toán tử đó là từ phải sang trái so với toán tử nằm ở đỉnh của stack. Hãy đẩy toán tử này vào stack
-
-•	Khả năng 2 : Ngược lại, khi toán tử có độ ưu tiên nhỏ hơn, hoặc bằng nhưng theo quy tắc kết hợp từ trái sang phải so với toán tử nằm ở đỉnh stack. Hãy đẩy toán tử từ stack ra ngoài cho tới khi gặp toán tử đầu tiên có độ ưu tiên cao hơn hoặc bằng nhưng có tính kết hợp từ phải sang trái thì đẩy toán tử đang xét vào stack (quay lại khả năng 1)
-
-+ If gặp ký tự ‘(‘ (mở ngoặc), luôn đầy vào trong stack
-+ Nếu gặp ký tự ‘)’ (đóng ngoặc), đưa các toán tử trong stack ra ngoài cho tới khi gặp được ký tự ‘(’ (mở ngoặc)
-
-+ Lặp lại các bước trên cho tới khi toàn bộ biểu thức đều đã được quét 
+```
 
 
--	File mã nguồn : InfixToPostfix.cpp
+- Biểu thức trung tố : Toán tử nằm giữa 2 toán hạng, với dạng như : a + b – c * d
+- Biểu thức hậu tố : Toán tử nằm sau hai toán hạng cần tính. Ví dụ : a b + (nghĩa là a + b) hoặc a b c + * (nghĩa là : a * (b+c))
+
+- Tại sao nên sử dụng biểu thức hậu tố : 
+  - Việc tính toán một biểu thức hậu tố sẽ nhanh chóng và đơn giản hơn nhiều so với các biểu thức trung tố vì ta chỉ cần duyệt 1 lần từ trái qua phải trong biểu thức hậu tố để tìm ra được kết quả; trong khi với biểu thức trung tố cần phải xét đến thứ tự ưu tiên của toán tử cũng như tính kết hợp (từ trái sang phải hay từ phải sang trái khi các toán tử được xét là cùng độ ưu tiên), thậm chí còn phức tạp hơn nhiều trong trường hợp có sự đóng góp của nhiều dấu đóng-mở ngoặc trong một biểu thức trung tố,…
+
+- Chú thích về tính kết hợp (Tức khi các toán tử có cùng độ ưu tiên thì sẽ ưu tiên tính về bên nào trước (trái hay phải?))
+  - Tính kết hợp từ trái sang phải bao gồm các nhóm toán tử có cùng độ ưu tiên sau : (+, -), (*, /)
+  - Tính kết hợp từ phải sang trái bao gồm các nhóm toán tử có cùng độ ưu tiên sau : (^)
+
+- Giải thuật : 
+  - Từ biểu thức trung tố cho trước, duyệt từ trái qua phải, với mỗi ký tự được gặp : 
+  - Nếu nó là một toán hạng, luôn xuất (output) ký tự đó ra
+  - Nếu nó là một toán tử, xảy ra 2 khả năng : 
+    - Khả năng 1 : Toán tử này có độ ưu tiên cao hơn, hoặc có độ ưu tiên bằng nhưng theo quy tắc kết hợp của toán tử đó là từ phải sang trái so với toán tử nằm ở đỉnh của stack. Hãy đẩy toán tử này vào stack
+
+    - Khả năng 2 : Ngược lại, khi toán tử có độ ưu tiên nhỏ hơn, hoặc bằng nhưng theo quy tắc kết hợp từ trái sang phải so với toán tử nằm ở đỉnh stack. Hãy đẩy toán tử từ stack ra ngoài cho tới khi gặp toán tử đầu tiên có độ ưu tiên cao hơn hoặc bằng nhưng có tính kết hợp từ phải sang trái thì đẩy toán tử đang xét vào stack (quay lại khả năng 1)
+
+  - If gặp ký tự ‘(‘ (mở ngoặc), luôn đầy vào trong stack
+  - Nếu gặp ký tự ‘)’ (đóng ngoặc), đưa các toán tử trong stack ra ngoài cho tới khi gặp được ký tự ‘(’ (mở ngoặc)
+
+  - Lặp lại các bước trên cho tới khi toàn bộ biểu thức đều đã được quét 
 
 
-### 5.	Hàm tính giá trị từ một biểu thức hậu tố
+- File mã nguồn : InfixToPostfix.cpp
+
+
+## 5.	Hàm tính giá trị từ một biểu thức hậu tố
 int evaluatePostfix(char *postfixExp);
 
--	Tư tưởng chính : 
+- Tư tưởng chính : 
 + Duyệt biểu thức hậu tố từ trái qua phải, nếu gặp toán hạng hãy đưa vào trong ngăn xếp, nếu gặp toán tử hãy lấy 2 toán hạng đầu tiên trong ngăn xếp ra rồi tính toán 2 toán hạng đó với toán tử đang xét và đưa kết quả vào ngăn xếp -> Cứ như vậy cho tới khi duyệt hết biểu thức hậu tố, lúc này trong ngăn xếp chỉ còn lại một giá trị và đó chính là kết quả của biểu thức hậu tố !!!
 
 -	File mã nguồn : InfixToPostfix.cpp
