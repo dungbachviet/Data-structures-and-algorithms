@@ -5,7 +5,7 @@
 ## 1. Giới thiệu về Cây nhị phân (Binary Tree)
 https://www.geeksforgeeks.org/binary-tree-set-1-introduction/
 
-- Khác với các cấu trúc dữ liệu tuyến tính như Arrays, Linked List, Stack, Queue... Cây là một cáu trúc dữ liệu phân cấp
+- Khác với các cấu trúc dữ liệu tuyến tính như Arrays, Linked List, Stack, Queue... Cây là một cấu trúc dữ liệu phân cấp
 
 - Cấu trúc của cây : Node nằm ở trên đỉnh được gọi là root (rễ) của cây. Những node được nối phía dưới của một node được gọi là con của nó (children). Node được nối phía trên của một node được gọi là cha mẹ (parent) của node đó.
 
@@ -22,9 +22,9 @@ https://www.geeksforgeeks.org/binary-tree-set-1-introduction/
   - Áp dụng trong giải thuật định tuyến
   - Cơ chế đưa ra quyết định nhiều giai đoạn (multi-stage decision-making)
   
-### - Cây nhị phân :  Là một cây trong đó mỗi thành phần có nhiều nhất 2 node con. Vì mỗi thành phần trong cây nhị phân có duy nhất 2 node nên thông thường chúng ta sẽ gọi chúng tương ứng là : con trái (left child) và con phải (right child).
+- Cây nhị phân :  Là một cây trong đó mỗi thành phần có nhiều nhất 2 node con. Vì mỗi thành phần trong cây nhị phân có duy nhất 2 node nên thông thường chúng ta sẽ gọi chúng tương ứng là : con trái (left child) và con phải (right child).
 
-### - Biểu diễn cây nhị phân : Một cây được biểu diễn bởi một con trỏ tới node gốc (topmost, root) của cây. Nếu cây rỗng, thì giá trị của root là NULL. Một Tree Node sẽ bao gồm các thành phần sau : 
+- Biểu diễn cây nhị phân : Một cây được biểu diễn bởi một con trỏ tới node gốc (topmost, root) của cây. Nếu cây rỗng, thì giá trị của root là NULL. Một Tree Node sẽ bao gồm các thành phần sau : 
   - Data (dữ liệu)
   - Con trỏ tới con trái
   - Con trỏ tới con phải
