@@ -11,7 +11,7 @@
   
   - Ví dụ về đống Min :
   
-    ![Đống Min](/min-heap.PNG)
+    ![Đống Min](https://github.com/dungbachviet/Data-structures-and-algorithms/blob/master/Heap/min-heap.PNG)
 	
 - Cách biểu diễn Đống nhị phân : Đống nhị phân là một cây nhị phân hoàn toàn, một đống nhị phân thường được biểu diễn như một mảng (Array)
   - Root nằm tại phần tử đầu tien của mảng, tức Arr[0]
